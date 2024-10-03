@@ -1,5 +1,5 @@
 # Maze
-HTML, CSS, JavaScript application that generates maze of 3 different difficulties and challenges you to solve it.
+HTML, CSS, JavaScript application that generates maze of 3 different difficulties that is always different and random to challenge you to solve it.
 It uses DFS algorithm with random selection of direction of path with one trick that I figured.
 # Rules
 You start in bottom right corner and use keyboard arrows to move arround.<br /><br />
