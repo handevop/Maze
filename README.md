@@ -1,6 +1,6 @@
 # Maze
 HTML, CSS, JavaScript application that generates maze of 3 different difficulties that is always different and random to challenge you to solve it.
-It uses DFS algorithm with random selection of direction of path with one trick that I figured.
+It uses DFS algorithm with random selection of which direction should path take with one trick that I figured is handy.
 # Rules
 You start in bottom right corner and use keyboard arrows to move arround.<br /><br />
 Your goal is to reach upper left corner. <br /><br />
