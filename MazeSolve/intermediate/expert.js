@@ -1,8 +1,8 @@
-var n = 50,
-    ni = 30;
+var n = 80,
+    ni = 60;
 var zadnjai = ni - 1,
     zadnjaj = n - 1,
-    velicina = "20px";
+    velicina = "10px";
 var defH = 0,
     defW = 0;
 
@@ -11,13 +11,27 @@ function pos() {
     defW = window.innerWidth;
 }
 pos();
+var arrow_keys_handler = function(e) {
+    switch (e.keyCode) {
+        case 37:
+        case 39:
+        case 38:
+        case 40: // Arrow keys
+        case 32:
+            e.preventDefault();
+            break; // Space
+        default:
+            break; // do not block other keys
+    }
+};
+window.addEventListener("keydown", arrow_keys_handler, false);
 
 var nn = document.getElementById('save');
-nn.style.width = n * 20 - 5 + 'px';
-nn.style.height = ni * 20 - 5 + 'px';
+nn.style.width = n * 10 + 1 + 'px';
+nn.style.height = ni * 10 - 1 + 'px';
 nn.style.position = "relative";
 nn.style.left = "50%";
-var pozPluss = -n * 20 / 2 - 1;
+var pozPluss = -n * 10 / 2 - 1;
 nn.style.marginLeft = (defW - window.innerWidth) + pozPluss + 'px'; //845 634
 nn.style.zIndex = "1";
 
@@ -30,15 +44,15 @@ for (var i = 0; i < ni; i++) {
         para.style.width = velicina;
         para.style.fontSize = "0px";
         para.id = i * n + j;
-        para.style.borderTop = " 2px solid black";
-        para.style.borderLeft = " 2px solid black";
-        para.style.borderBottom = " 2px solid black";
-        para.style.borderRight = " 2px solid black";
+        para.style.borderTop = " 1px solid black";
+        para.style.borderLeft = " 1px solid black";
+        para.style.borderBottom = " 1px solid black";
+        para.style.borderRight = " 1px solid black";
         para.style.height = velicina;
         para.style.position = "absolute";
         para.style.left = "50%";
-        para.style.top = (i * 20) + 'px';
-        var pozPlus = -n * 20 / 2 + j * 20;
+        para.style.top = (i * 10) + 'px';
+        var pozPlus = -n * 10 / 2 + j * 10;
         para.style.marginLeft = pozPlus + "px";
         var el = document.getElementById("bring");
         el.appendChild(para);
@@ -59,8 +73,8 @@ var item = document.getElementById(myi * n + myj);
 
 var img = document.createElement("img");
 
-img.src = "CaptureHard.png";
-
+img.src = "../images/CaptureHard.png";
+img.style = "width: 10px; height: 10px;"
 item.appendChild(img);
 var matrica = new Array();
 
@@ -191,6 +205,7 @@ function gradi() {
         if (matrica[pozi - 1][pozj] != 1 || matrica[pozi][pozj] == -1) granica++;
     }
     var nana;
+    var pra = 0;
     nana = Math.floor(Math.random() * 3);
     if (nana == 0) nana++;
     granica = Math.min(granica, nana);
@@ -199,7 +214,8 @@ function gradi() {
         switch (Math.floor(Math.random() * 10) % 4) {
             case 0:
                 if (pozj + 1 < n) {
-                    if (matrica[pozi][pozj + 1] != 1 || matrica[pozi][pozj] == -1 && matrica[pozi][pozj + 1] == 1) {
+                    if (matrica[pozi][pozj + 1] != 1 || matrica[pozi][pozj] == -1 && matrica[pozi][pozj + 1] == 1 ||
+                        matrica[pozi][pozj] == -1 && pra == 1) {
                         redi.unshift(pozi);
                         redj.unshift(pozj + 1);
                         matrica[pozi][pozj + 1] = 1;
@@ -212,7 +228,8 @@ function gradi() {
                 break;
             case 1:
                 if (pozj - 1 >= 0) {
-                    if (matrica[pozi][pozj - 1] != 1 || matrica[pozi][pozj] == -1 && matrica[pozi][pozj - 1] == 1) {
+                    if (matrica[pozi][pozj - 1] != 1 || matrica[pozi][pozj] == -1 && matrica[pozi][pozj - 1] == 1 ||
+                        matrica[pozi][pozj] == -1 && pra == 1) {
                         redi.unshift(pozi);
                         redj.unshift(pozj - 1);
                         matrica[pozi][pozj - 1] = 1;
@@ -225,7 +242,8 @@ function gradi() {
                 break;
             case 2:
                 if (pozi + 1 < ni) {
-                    if (matrica[pozi + 1][pozj] != 1 || matrica[pozi][pozj] == -1 && matrica[pozi + 1][pozj] == 1) {
+                    if (matrica[pozi + 1][pozj] != 1 || matrica[pozi][pozj] == -1 && matrica[pozi + 1][pozj] == 1 ||
+                        matrica[pozi][pozj] == -1 && pra == 1) {
                         redi.unshift(pozi + 1);
                         redj.unshift(pozj);
                         matrica[pozi + 1][pozj] = 1;
@@ -238,7 +256,8 @@ function gradi() {
                 break;
             case 3:
                 if (pozi - 1 >= 0) {
-                    if (matrica[pozi - 1][pozj] != 1 || matrica[pozi][pozj] == -1 && matrica[pozi - 1][pozj] == 1) {
+                    if (matrica[pozi - 1][pozj] != 1 || matrica[pozi][pozj] == -1 && matrica[pozi - 1][pozj] == 1 ||
+                        matrica[pozi][pozj] == -1 && pra == 1) {
                         redi.unshift(pozi - 1);
                         redj.unshift(pozj);
                         matrica[pozi - 1][pozj] = 1;

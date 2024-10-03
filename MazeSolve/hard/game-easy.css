@@ -1,0 +1,23 @@
+html {
+    background-color: blue;
+}
+
+#bring {
+    position: relative;
+    top: 10px;
+}
+
+#save {
+    border: 5px solid black;
+}
+
+#show {
+    position: relative;
+    left: 0px;
+    height: 1000px;
+}
+
+html {
+    min-width: 900px;
+    min-height: 650px;
+}

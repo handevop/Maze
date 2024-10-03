@@ -49,7 +49,7 @@
 
     var img = document.createElement("img");
 
-    img.src = "Capture.png";
+    img.src = "../images/Capture.png";
 
     item.appendChild(img);
     var matrica = new Array();
