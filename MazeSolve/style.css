@@ -1,0 +1,38 @@
+html {
+    background: blue;
+}
+
+#easy,
+#hard,
+#intermediate {
+    width: 500px;
+    height: 20%;
+    font-size: 30px;
+    font-weight: bold;
+    border: 2px solid black;
+    background: darkblue;
+    color: White;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    margin-left: -250px;
+}
+
+#hard {
+    top: 49.5%;
+}
+
+#intermediate {
+    top: 69.3%;
+}
+
+#naslov {
+    position: absolute;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    line-height: 0.4px;
+    top: 7%;
+    left: 50%;
+    margin-left: -200px;
+}
